@@ -1,6 +1,6 @@
-#sync rom
-repo init --depth=1 --no-repo-verify -u https://github.com/Project-Xtended/manifest.git -b xt -g default,-mips,-darwin,-notdefault
-git clone https://github.com/NFS-Project/local_manifest --depth 1 -b rosy-Xtended-13 .repo/local_manifests
+# sync rom
+repo init --depth=1 --no-repo-verify -u https://github.com/Corvus-AOSP/android_manifest.git -b 12 -g default,-mips,-darwin,-notdefault
+git clone https://github.com/zacky46/local_manifest --depth 1 -b corvus-12 .repo/local_manifests
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # build rom
@@ -9,16 +9,17 @@ timeStart
 
 source build/envsetup.sh
 export TZ=Asia/Jakarta
-export KBUILD_BUILD_USER=rosy
-export KBUILD_BUILD_HOST=nfsproject
-export BUILD_USERNAME=rosy
-export BUILD_HOSTNAME=nfsproject
-lunch xtended_rosy-userdebug
+export WITH_GAPPS=true
+export KBUILD_BUILD_USER=zacky
+export KBUILD_BUILD_HOST=android-build
+export BUILD_USERNAME=zacky
+export BUILD_HOSTNAME=android-build
+lunch corvus_ginkgo-userdebug
 mkfifo reading # Jangan di Hapus
 tee "${BUILDLOG}" < reading & # Jangan di Hapus
 build_message "Building Started" # Jangan di Hapus
 progress & # Jangan di Hapus
-timeout 95m make xtended -j8 > reading # Jangan di hapus text line (> reading)
+make corvus -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
 
 retVal=$?
 timeEnd
