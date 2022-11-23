@@ -1,6 +1,8 @@
 env:
   WORKDIR: "/tmp"
+  EMAIL: "ENCRYPTED[f27e8b0eecdbf41e08d375db6fac4b5d329dd33bdea2b1fd203cf2b61134935a36ec99ef5897a943fbd4b4d36f2cb23d]"
   CIRRUS_CLONE_DEPTH: "1"
+  credentials: "ENCRYPTED[44a54f6936116e60056fc00a425d7d4642e0fec79b174e4bcd7ccaf2fb5b224e708f6bc7d07e35a7814e3219962d7a86]"
 
 task:
   name: "Admin Builder"
@@ -20,6 +22,10 @@ task:
      - bash -c "$(curl -sL https://raw.githubusercontent.com/NFS-Project/cirrus-ci-skrip/master/rom/load_ccache.sh)"
 
   Sync-rom_script:
+     - git config --global user.name "zacky46"
+     - git config --global user.email "kngsoft46@gmail.com"
+     - echo "$credentials" > ~/.git-credentials
+     - git config --global credential.helper store --file=~/.git-credentials
      - bash -c "$(curl -sL https://raw.githubusercontent.com/NFS-Project/cirrus-ci-skrip/master/rom/sync.sh)"
      
   Build-rom_script:
