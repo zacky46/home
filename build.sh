@@ -13,12 +13,14 @@ export KBUILD_BUILD_USER=zacky
 export KBUILD_BUILD_HOST=android-build
 export BUILD_USERNAME=zacky
 export BUILD_HOSTNAME=android-build
+export ALLOW_MISSING_DEPENDENCIES=true
+export USE_CCACHE=1
 lunch banana_whyred-userdebug
 mkfifo reading # Jangan di Hapus
 tee "${BUILDLOG}" < reading & # Jangan di Hapus
 build_message "Building Started" # Jangan di Hapus
 progress & # Jangan di Hapus
-make banana -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
+mka banana -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
 
 retVal=$?
 timeEnd
