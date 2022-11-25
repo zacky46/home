@@ -11,8 +11,8 @@ task:
   stateful: true
   timeout_in: 120m
   container:
-    image: zacky46/ubuntu:22.04
-    cpu: 9
+    image: zacky46/home:22.04
+    cpu: 10
     memory: 32G
 
   Check-User_script:
