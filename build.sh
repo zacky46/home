@@ -11,10 +11,6 @@ source build/envsetup.sh
 export TZ=Asia/Jakarta
 export KBUILD_BUILD_USER=zacky
 export KBUILD_BUILD_HOST=android-build
-export BUILD_USERNAME=zacky
-export BUILD_HOSTNAME=android-build
-export ALLOW_MISSING_DEPENDENCIES=true
-export USE_CCACHE=1
 lunch banana_whyred-userdebug
 mkfifo reading # Jangan di Hapus
 tee "${BUILDLOG}" < reading & # Jangan di Hapus
