@@ -1,4 +1,4 @@
-# sync rom
+#sync rom
 repo init --depth=1 --no-repo-verify -u https://github.com/bananadroid/android_manifest.git -b 12 -g default,-mips,-darwin,-notdefault
 git clone https://github.com/zacky46/local_manifest --depth 1 -b whyred-banana-12 .repo/local_manifests
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
@@ -21,4 +21,4 @@ make banana -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
 retVal=$?
 timeEnd
 statusBuild
-# end 
+# end
