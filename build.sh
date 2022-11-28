@@ -10,18 +10,16 @@ timeStart
 source build/envsetup.sh
 export TZ=Asia/Jakarta
 export WITH_GAPPS=true
-export KBUILD_BUILD_USER=zacky
-export KBUILD_BUILD_HOST=android-build
 export BUILD_USERNAME=zacky
-export BUILD_HOSTNAME=android-build
+export BUILD_HOSTNAME=cirrus-ci
 lunch corvus_ginkgo-userdebug
 mkfifo reading # Jangan di Hapus
 tee "${BUILDLOG}" < reading & # Jangan di Hapus
 build_message "Building Started" # Jangan di Hapus
 progress & # Jangan di Hapus
-make corvus -j8  > reading & sleep 95m # Jangan di hapus text line (> reading)
+make corvus -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
 
 retVal=$?
 timeEnd
 statusBuild
-# end
+# end 
