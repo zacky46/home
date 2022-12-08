@@ -11,7 +11,7 @@ source build/envsetup.sh
 export TZ=Asia/Jakarta
 export WITH_GAPPS=true
 export BUILD_USERNAME=zacky
-export BUILD_HOSTNAME=cirrus-ci
+export BUILD_HOSTNAME=android-build
 lunch corvus_ginkgo-userdebug
 mkfifo reading # Jangan di Hapus
 tee "${BUILDLOG}" < reading & # Jangan di Hapus
