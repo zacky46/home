@@ -22,4 +22,4 @@ make corvus -j8  > reading #& sleep 95m # Jangan di hapus text line (> reading)
 retVal=$?
 timeEnd
 statusBuild
-# end 
+# end
